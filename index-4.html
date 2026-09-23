@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>For My Wife ❤️</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:Arial,sans-serif}
+body{min-height:100vh;background:#050507;color:#fff;overflow-x:hidden}
+button{font-family:inherit}
+.page{display:none;min-height:100vh;padding:25px 18px 90px;animation:in .5s ease}
+.page.active{display:block}
+@keyframes in{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
+.bg{position:fixed;inset:0;z-index:-2;background:radial-gradient(circle at 50% 0,#681936,#190914 35%,#050507 75%)}
+.glow{position:fixed;width:250px;height:250px;border-radius:50%;background:#ff1744;filter:blur(130px);opacity:.12;top:15%;left:50%;transform:translateX(-50%);z-index:-1}
+.heart{position:fixed;top:-40px;z-index:20;pointer-events:none;animation:fall linear forwards}
+@keyframes fall{to{transform:translateY(110vh) rotate(360deg);opacity:0}}
+.lock{min-height:100vh;display:flex;align-items:center;justify-content:center;padding:20px}
+.lockBox{width:100%;max-width:400px;padding:35px 22px;text-align:center;border-radius:30px;background:#ffffff12;border:1px solid #ff648a40;box-shadow:0 20px 70px #0008;backdrop-filter:blur(15px)}
+.lockHeart{font-size:70px;animation:beat 1.2s infinite}
+@keyframes beat{0%,100%{transform:scale(1)}50%{transform:scale(1.15)}}
+.lockBox h1{margin:15px 0 8px;font-size:31px}.lockBox p{color:#e9b9c7;line-height:1.7}
+.nameInput{width:100%;margin-top:25px;padding:15px;border-radius:15px;border:1px solid #713044;outline:none;background:#11090d;color:#fff;text-align:center;font-size:16px}
+.enterBtn,.mainBtn{border:0;border-radius:50px;color:#fff;font-weight:bold;font-size:17px;background:linear-gradient(135deg,#ff1744,#ff5b86);box-shadow:0 10px 30px #ff174450}
+.enterBtn{width:100%;margin-top:14px;padding:15px}
+.header{max-width:500px;margin:auto;display:flex;align-items:center;justify-content:space-between;padding:5px 0 20px}
+.logo{font-size:24px;font-weight:bold}.logo span{color:#ff426f}
+.hero{max-width:500px;margin:20px auto;text-align:center}.heroHeart{font-size:80px;animation:beat 1.2s infinite}
+.hero h1{font-size:35px;margin:12px 0}.hero h1 span{color:#ff4775}.hero p{color:#e6b7c4;line-height:1.8}
+.card{max-width:500px;margin:18px auto;padding:24px 20px;border-radius:25px;background:#ffffff10;border:1px solid #ff648a30;box-shadow:0 15px 40px #00000059;backdrop-filter:blur(10px)}
+.card h2{text-align:center;color:#ff648a;margin-bottom:15px}.text{text-align:center;line-height:1.9;color:#f7e4e9}
+.menu{max-width:500px;margin:25px auto;display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.menuBtn{min-height:105px;border:1px solid #ff5a8233;border-radius:22px;background:#ffffff12;color:#fff;font-size:15px;font-weight:bold;transition:.25s}
+.menuBtn:active{transform:scale(.94)}.menuIcon{display:block;font-size:32px;margin-bottom:8px}
+.mainBtn{display:block;width:100%;max-width:400px;margin:15px auto;padding:15px}
+.backBtn{display:block;width:100%;max-width:400px;margin:15px auto;padding:13px;border:1px solid #63303f;border-radius:50px;background:#12090d;color:#ffd5df}
+.sorryBig{text-align:center;font-size:38px;color:#ff426f;text-shadow:0 0 20px #ff1744;margin:20px 0}
+.quote{text-align:center;padding:22px;border-radius:20px;background:#ff17441a;color:#ffdce5;line-height:2}
+.shayariBox{margin:15px 0;padding:22px;border-left:3px solid #ff426f;border-radius:15px;background:#ffffff0d;line-height:2;color:#ffe3ea;text-align:center}
+.loveMeter{text-align:center;font-size:45px;margin:20px 0}.infinite{text-align:center;font-size:65px;color:#ff4775;text-shadow:0 0 25px #ff1744}
+.memory{margin:15px 0;padding:20px;border-radius:20px;background:linear-gradient(135deg,#ff174421,#ffffff0a)}
+.memory b{color:#ff668b}.memory p{margin-top:8px;color:#e9cbd3;line-height:1.7}
+.gift{text-align:center;font-size:100px;margin:20px 0;cursor:pointer;animation:float 2s infinite}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-12px)}}
+.surprise{display:none;text-align:center;padding:25px;border-radius:25px;background:#ff17441f;animation:in .6s ease}
+.surprise h2{color:#ff638a;margin-bottom:12px}.surprise p{line-height:1.9;color:#ffe4eb}
+.secret{text-align:center}.secretHeart{font-size:90px;animation:beat 1s infinite}.secret h1{margin:15px 0}.secret p{line-height:2;color:#f5dce3}
+.footer{text-align:center;color:#986b79;margin:30px 0 10px;font-size:13px}
+.bottom{position:fixed;bottom:0;left:0;right:0;height:65px;background:#050507f5;border-top:1px solid #241118;display:none;align-items:center;justify-content:space-around;z-index:15;backdrop-filter:blur(10px)}
+.bottom button{background:none;border:0;color:#b9909d;font-size:12px}.bottom span{display:block;font-size:22px;margin-bottom:2px}.bottom .active{color:#ff4775}
+.toast{position:fixed;left:50%;bottom:85px;transform:translateX(-50%) translateY(20px);background:#251017;border:1px solid #693041;color:#ffe1e8;padding:13px 18px;border-radius:50px;opacity:0;pointer-events:none;transition:.3s;z-index:50;white-space:nowrap}.toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+</style>
+</head>
+<body>
+<div class="bg"></div><div class="glow"></div>
+
+<section id="lock" class="lock">
+<div class="lockBox">
+<div class="lockHeart">❤️</div>
+<h1>শুধু আমার বউয়ের জন্য</h1>
+<p>এই ছোট্ট জায়গাটা শুধু তোমার জন্য।<br>ঢুকতে হলে আগে তোমার নামটা লিখো। 🥺❤️</p>
+<input id="wifeName" class="nameInput" placeholder="তোমার নাম লিখো ❤️">
+<button class="enterBtn" onclick="enterSite()">ভিতরে আসো ❤️</button>
+</div>
+</section>
+
+<section id="home" class="page">
+<div class="header"><div class="logo">For <span>My Wife</span> ❤️</div><div>💗</div></div>
+<div class="hero"><div class="heroHeart">❤️</div><h1>হ্যালো <span id="nameShow">বউ</span> 🥺</h1><p>তোমার রাগ ভাঙানোর জন্য<br>তোমার পাগলটা এই জায়গাটা বানিয়েছে। ❤️</p></div>
+<div class="card"><h2>একটা কথা বলবো? 🥺</h2><div class="text">তুমি আমার ওপর রাগ করে আছো, কিন্তু আমি তোমাকে একটুও রাগ করে থাকতে দেখতে পারি না।<br><br>তাই এই পুরো website-টা শুধু তোমার জন্য। ❤️</div></div>
+<div class="menu">
+<button class="menuBtn" onclick="showPage('sorry')"><span class="menuIcon">🥺</span>Sorry</button>
+<button class="menuBtn" onclick="showPage('shayari')"><span class="menuIcon">🌹</span>শায়েরি</button>
+<button class="menuBtn" onclick="showPage('love')"><span class="menuIcon">❤️</span>Love</button>
+<button class="menuBtn" onclick="showPage('memory')"><span class="menuIcon">💭</span>আমাদের কথা</button>
+<button class="menuBtn" onclick="showPage('surprise')"><span class="menuIcon">🎁</span>Surprise</button>
+<button class="menuBtn" onclick="showPage('secret')"><span class="menuIcon">💌</span>Secret</button>
+</div>
+<div class="footer">Made with endless love ❤️</div>
+</section>
+
+<section id="sorry" class="page">
+<div class="header"><div class="logo">🥺 Sorry</div><button onclick="showPage('home')" style="background:none;border:0;color:white;font-size:25px">×</button></div>
+<div class="card"><div class="sorryBig">SORRY ❤️</div><div class="quote">আমার বউ,<br><br>আমি জানি তুমি রাগ করেছো। কিন্তু তোমাকে কষ্ট দেওয়া কখনোই আমার ইচ্ছা ছিল না। 🥺<br><br>ভুল হলে শাস্তি দিও, বকা দিও, কিন্তু আমার সাথে কথা বলা বন্ধ কোরো না। ❤️<br><br><b>একবার মাফ করে দাও প্লিজ। 🥺❤️</b></div></div>
+<button class="mainBtn" onclick="forgive()">আমাকে মাফ করে দাও ❤️</button><button class="backBtn" onclick="showPage('home')">← ফিরে যাও</button>
+</section>
+
+<section id="shayari" class="page">
+<div class="header"><div class="logo">🌹 শায়েরি</div><button onclick="showPage('home')" style="background:none;border:0;color:white;font-size:25px">×</button></div>
+<div class="shayariBox">রাগ করে থেকো না জান,<br>তোমার রাগে কষ্ট পায় এই প্রাণ। ❤️<br>ভুল যদি করে থাকি আমি,<br>মাফ করে দিও আমায় জান। 🥺</div>
+<div class="shayariBox">তুমি হাসলে আমার পৃথিবী হাসে,<br>তুমি কাঁদলে মনটা আমার ভাসে। 💕<br>তাই অভিমান ভুলে কাছে এসো,<br>ভালোবাসা দিয়ে আমায় ভরিয়ে দিও। ❤️</div>
+<div class="shayariBox">হাজার মানুষের ভিড়ে তুমি আমার আপন,<br>তোমাকে ছাড়া অসম্পূর্ণ আমার জীবন। 🫶<br>রাগ করো, অভিমান করো যত খুশি,<br>শুধু আমাকে ছেড়ে যেও না কোনোদিন। ❤️</div>
+<button class="mainBtn" onclick="moreLove()">আরও ভালোবাসা ❤️</button><button class="backBtn" onclick="showPage('home')">← ফিরে যাও</button>
+</section>
+
+<section id="love" class="page">
+<div class="header"><div class="logo">❤️ Love</div><button onclick="showPage('home')" style="background:none;border:0;color:white;font-size:25px">×</button></div>
+<div class="card"><div class="loveMeter">❤️ 💕 ❤️</div><div class="infinite">∞</div><h2>আমার ভালোবাসার কোনো শেষ নেই</h2><div class="text">I Love You ❤️<br>I Love You ❤️<br>I Love You ❤️<br>I Love You ❤️<br>I Love You ❤️<br><br>আজও ভালোবাসি,<br>কালও ভালোবাসবো,<br>আর যতদিন বাঁচবো,<br>তোমাকেই ভালোবাসবো। 🥺❤️</div></div>
+<button class="mainBtn" onclick="loveRain()">Love Rain ❤️</button><button class="backBtn" onclick="showPage('home')">← ফিরে যাও</button>
+</section>
+
+<section id="memory" class="page">
+<div class="header"><div class="logo">💭 আমাদের কথা</div><button onclick="showPage('home')" style="background:none;border:0;color:white;font-size:25px">×</button></div>
+<div class="memory"><b>💗 প্রথম কথা</b><p>আমাদের গল্পের শুরুটা হয়তো ছোট ছিল, কিন্তু আমার কাছে সেটা অনেক বড় একটা স্মৃতি।</p></div>
+<div class="memory"><b>🥰 তোমার হাসি</b><p>তোমার হাসি দেখলেই আমার মন ভালো হয়ে যায়। তাই তোমাকে সবসময় হাসিখুশি দেখতে চাই।</p></div>
+<div class="memory"><b>🫶 আমাদের ভালোবাসা</b><p>জীবনে যত ঝামেলাই আসুক, আমি চাই আমরা দুজন একসাথে থাকি।</p></div>
+<div class="memory"><b>🌙 একটা প্রতিশ্রুতি</b><p>রাগ-অভিমান হবে, ভুলও হতে পারে, কিন্তু ভালোবাসাটা যেন কখনো শেষ না হয়। ❤️</p></div>
+<button class="mainBtn" onclick="showPage('secret')">শেষের কথাটা দেখো 💌</button><button class="backBtn" onclick="showPage('home')">← ফিরে যাও</button>
+</section>
+
+<section id="surprise" class="page">
+<div class="header"><div class="logo">🎁 Surprise</div><button onclick="showPage('home')" style="background:none;border:0;color:white;font-size:25px">×</button></div>
+<div class="card" style="text-align:center"><p class="text">নিচের gift-এ চাপ দাও।<br>তোমার জন্য একটা surprise আছে। 🥺</p><div class="gift" onclick="openGift()">🎁</div>
+<div id="surpriseBox" class="surprise"><h2>Surprise! 🥹❤️</h2><p>তুমি আমার জীবনের সবচেয়ে প্রিয় মানুষ। ❤️<br><br>তাই রাগটা একটু কমাও, আর আমাকে একটা হাসি দাও। 🥺🫶</p></div>
+</div><button class="backBtn" onclick="showPage('home')">← ফিরে যাও</button>
+</section>
+
+<section id="secret" class="page">
+<div class="header"><div class="logo">💌 Secret</div><button onclick="showPage('home')" style="background:none;border:0;color:white;font-size:25px">×</button></div>
+<div class="card secret"><div class="secretHeart">❤️</div><h1>একটা শেষ কথা...</h1><p>তুমি শুধু আমার বউ না, তুমি আমার ভালোবাসা, আমার শান্তি, আমার সবচেয়ে আপন মানুষ। 🥺❤️<br><br>আমাদের মধ্যে যত রাগ, যত অভিমান, সবকিছুর চেয়ে আমাদের ভালোবাসা অনেক বড়।<br><br><strong style="font-size:25px;color:#ff547d">I LOVE YOU ❤️</strong><br><br><b>আর প্লিজ আমার ওপর আর রাগ করে থেকো না। 🥺❤️</b></p></div>
+<button class="mainBtn" onclick="finalLove()">❤️ আমাকে একটা সুযোগ দাও</button><button class="backBtn" onclick="showPage('home')">← আবার শুরুতে যাও</button>
+</section>
+
+<div class="bottom" id="bottomNav">
+<button class="active" onclick="showPage('home')"><span>🏠</span>Home</button>
+<button onclick="showPage('sorry')"><span>🥺</span>Sorry</button>
+<button onclick="showPage('love')"><span>❤️</span>Love</button>
+<button onclick="showPage('secret')"><span>💌</span>Secret</button>
+</div>
+<div class="toast" id="toast"></div>
+
+<script>
+function enterSite(){
+ let name=document.getElementById("wifeName").value.trim();
+ if(!name){showToast("আগে তোমার নামটা লিখো ❤️");return}
+ document.getElementById("nameShow").innerText=name;
+ document.getElementById("lock").style.display="none";
+ document.getElementById("home").classList.add("active");
+ document.getElementById("bottomNav").style.display="flex";
+ heartRain(20);
+}
+function showPage(page){
+ document.querySelectorAll(".page").forEach(p=>p.classList.remove("active"));
+ document.getElementById(page).classList.add("active");
+ window.scrollTo({top:0,behavior:"smooth"});
+ document.querySelectorAll(".bottom button").forEach(b=>b.classList.remove("active"));
+ let b=document.querySelectorAll(".bottom button");
+ if(page==="home")b[0].classList.add("active");
+ if(page==="sorry")b[1].classList.add("active");
+ if(page==="love")b[2].classList.add("active");
+ if(page==="secret")b[3].classList.add("active");
+}
+function forgive(){heartRain(35);showToast("ধন্যবাদ বউ 🥺❤️ আমি তোমাকে অনেক ভালোবাসি!")}
+function moreLove(){heartRain(25);showToast("I LOVE YOU ❤️ I LOVE YOU ❤️")}
+function loveRain(){heartRain(60);showToast("শুধু তোমার জন্য Love Rain ❤️")}
+function openGift(){document.getElementById("surpriseBox").style.display="block";heartRain(40)}
+function finalLove(){heartRain(80);showToast("তুমি আমার সবচেয়ে প্রিয় মানুষ ❤️🥺")}
+function createHeart(){
+ let h=document.createElement("div");h.className="heart";
+ let list=["❤️","💖","💕","💗","💓","💘","🥰","😘"];
+ h.innerText=list[Math.floor(Math.random()*list.length)];
+ h.style.left=Math.random()*100+"vw";
+ h.style.fontSize=15+Math.random()*25+"px";
+ h.style.animationDuration=3+Math.random()*4+"s";
+ document.body.appendChild(h);
+ setTimeout(()=>h.remove(),8000);
+}
+function heartRain(n){for(let i=0;i<n;i++)setTimeout(createHeart,i*60)}
+function showToast(message){
+ let t=document.getElementById("toast");t.innerText=message;t.classList.add("show");
+ setTimeout(()=>t.classList.remove("show"),3000);
+}
+setInterval(()=>{if(Math.random()>.35)createHeart()},1200);
+document.getElementById("wifeName").addEventListener("keydown",e=>{if(e.key==="Enter")enterSite()});
+</script>
+</body>
+</html>
